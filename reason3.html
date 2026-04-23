@@ -28,6 +28,9 @@
 <textarea id="reason" placeholder="Be honest..."></textarea><br>
 
 <button onclick="proceed()">Continue</button>
+
+<button onclick="clearHistory()">Clear history</button>
+  
 <script>
 function proceed() {
   const text = document.getElementById("reason").value.trim();
@@ -36,6 +39,14 @@ function proceed() {
     alert("Write a real reason (at least 10 characters).");
     return;
   }
+
+  function clearHistory() {
+  if (confirm("Clear all saved reasons?")) {
+    localStorage.removeItem("reasons");
+    localStorage.removeItem("last_reason");
+    location.reload();
+  }
+}
 
   let history = JSON.parse(localStorage.getItem("reasons") || "[]");
 
@@ -59,6 +70,7 @@ time: `${datePart} ${timePart}`
 
   window.location.href = "https://www.youtube.com";
 }
+  
 
 // Show history
 window.onload = function() {
@@ -71,6 +83,8 @@ window.onload = function() {
 
   document.body.innerHTML += html;
 };
+
+  
 </script>
 
 </body>
