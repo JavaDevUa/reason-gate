@@ -39,6 +39,7 @@ function proceed() {
     alert("Write a real reason (at least 10 characters).");
     return;
   }
+}
 
   function clearHistory() {
   if (confirm("Clear all saved reasons?")) {
@@ -46,7 +47,6 @@ function proceed() {
     localStorage.removeItem("last_reason");
     location.reload();
   }
-}
 
   let history = JSON.parse(localStorage.getItem("reasons") || "[]");
 
