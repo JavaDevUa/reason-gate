@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Why are you opening this?</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 100px auto;
+      text-align: center;
+    }
+    textarea {
+      width: 100%;
+      height: 120px;
+      font-size: 16px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Why are you opening YouTube?</h2>
+
+<textarea id="reason" placeholder="Be honest..."></textarea><br>
+
+<button onclick="proceed()">Continue</button>
+
+<script>
+function proceed() {
+  const text = document.getElementById("reason").value.trim();
+
+  if (text.length < 10) {
+    alert("Write a real reason (at least 10 characters).");
+    return;
+  }
+
+  // Optional: save locally
+  localStorage.setItem("last_reason", text);
+
+  // Redirect to YouTube
+  window.location.href = "https://www.youtube.com";
+}
+</script>
+
+</body>
+</html>
