@@ -41,7 +41,15 @@ function proceed() {
 
   history.push({
     text: text,
-    time: new Date().toLocaleString()
+
+    const now = new Date();
+
+const datePart = now.toLocaleDateString('en-GB').replace(/\//g, '.');
+const timePart = now.toLocaleTimeString();
+
+
+    
+    time: `${datePart} ${timePart}`
   });
 
   localStorage.setItem("reasons", JSON.stringify(history));
