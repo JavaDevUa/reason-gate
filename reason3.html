@@ -42,14 +42,17 @@ function proceed() {
   history.push({
     text: text,
 
-    const now = new Date();
+  const now = new Date();
 
-const datePart = now.toLocaleDateString('en-GB').replace(/\//g, '.');
+const datePart = [
+  String(now.getDate()).padStart(2, '0'),
+  String(now.getMonth() + 1).padStart(2, '0'),
+  now.getFullYear()
+].join('.');
+
 const timePart = now.toLocaleTimeString();
 
-
-    
-    time: `${datePart} ${timePart}`
+time: `${datePart} ${timePart}`
   });
 
   localStorage.setItem("reasons", JSON.stringify(history));
